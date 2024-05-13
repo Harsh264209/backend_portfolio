@@ -9,7 +9,7 @@ const app=express()
 require('dotenv').config();
 const Visitor=require('./Models/Users')
 const Router =require('./Api/Routes')
-const port=process.env.port || "mongodb://localhost:27017"
+const port=process.env.port || 4000
 const dburl=process.env.Mongo_Url
 
 app.use(cors({
