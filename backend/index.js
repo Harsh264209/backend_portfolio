@@ -8,7 +8,7 @@ require('dotenv').config();
 const Visitor=require('./Models/Users')
 const Router =require('./Api/Routes')
 const port=process.env.port || 4000
-const dburl=process.env.Mongo_Url 
+const dburl=process.env.Mongo_Url || "mongodb://localhost:27017"
 
 
 app.use(cors({
