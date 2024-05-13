@@ -1,6 +1,4 @@
 
-
-
 const express=require('express')
 const mongoose=require('mongoose')
 const cors=require('cors')
@@ -30,7 +28,6 @@ app.use('/new',Router)
 app.use('/fetch',Router)
 app.use('/newproject',Router)
 app.use('/inquires',Router)
-
 
 
 app.get('/',(req,res)=>{
