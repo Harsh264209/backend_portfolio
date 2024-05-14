@@ -57,16 +57,30 @@ const port = process.env.PORT || 4000;
 const dburl = process.env.Mongo_Url || "mongodb://0.0.0.0:27017";
 
 // Ensure the correct origin URL
-const allowedOrigin = 'https://harsh-portfolio-xwc8.vercel.app';
+// const allowedOrigin = 'https://harsh-portfolio-xwc8.vercel.app';
 
-const corsOptions = {
-    origin: allowedOrigin,
-    methods: ["POST", "GET", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
-};
+// const corsOptions = {
+//     origin: allowedOrigin,
+//     methods: ["POST", "GET", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true
+// };
 
-app.use(cors(corsOptions));
+
+const allowedOrigins = ['https://harsh-portfolio-xwc8.vercel.app', 'https://harsh-portfolio-z2av.vercel.app'];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
+
+
+// app.use(cors(corsOptions));
 
 // Handle preflight requests for all routes
 app.options('*', cors(corsOptions));
