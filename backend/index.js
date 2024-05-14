@@ -83,7 +83,7 @@ app.use(cors({
 // app.use(cors(corsOptions));
 
 // Handle preflight requests for all routes
-app.options('*', cors(corsOptions));
+// app.options('*', cors(corsOptions));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
